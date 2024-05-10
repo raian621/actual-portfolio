@@ -1,3 +1,4 @@
+import ProjectCardTechBadge from "./projectCardTechBadge";
 import styles from "./projects.module.css";
 import { ExternalLinkIcon, GitHubIcon } from "@/app/icons";
 
@@ -30,9 +31,11 @@ export default function ProjectCard({
         )}
       </div>
       {tech && (
-        <ul>
+        <ul className={styles.projectCardTechBadges}>
           {tech.map((val, key) => (
-            <li key={key}>{val}</li>
+            <li key={key}>
+              <ProjectCardTechBadge tech={val} />
+            </li>
           ))}
         </ul>
       )}

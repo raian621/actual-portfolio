@@ -3,8 +3,8 @@ import styles from "./topScrollButton.module.css";
 
 export default function TopScrollButton() {
   return (
-    <a className={styles.topScrollButton} href="#top">
-      <UpArrowIcon size="lg" color="black" />
-    </a>
+    <button className={styles.topScrollButton}>
+      <UpArrowIcon size="lg" color="white" />
+    </button>
   );
 }

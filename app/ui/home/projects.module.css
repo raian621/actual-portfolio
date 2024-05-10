@@ -1,7 +1,15 @@
 .projectCard {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: #999 0 0 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+.projectCard * {
+   margin: 0; 
 }
 
 .projectGrid {
@@ -24,6 +32,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
+        width: 800px;
     }
 }
 
@@ -31,4 +40,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.projectCardTechBadges {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
 }

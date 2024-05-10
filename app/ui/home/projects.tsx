@@ -18,12 +18,14 @@ export default function Projects() {
           description="Web app for generating transcripts using OpenAI's Whisper AI"
           projectUrl="https://transcribro.com"
           sourceUrl="https://github.com/nomaddevs1/Captioning"
+          tech={["react", "python"]}
         />
         <ProjectCard
           title="rand-um"
           description="Random social preview service"
           projectUrl="https://rand-um.com"
           sourceUrl="https://github.com/raian621/rand-um"
+          tech={["react", "go"]}
         />
         <ProjectCard
           title="Grocery Price Predictor"
