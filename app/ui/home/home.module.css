@@ -1,0 +1,24 @@
+.title {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.nameSubtitle {
+    color: #444444;
+}
+
+.landingPageLinks {
+    display: flex;
+    list-style: none;
+    gap: 1em;
+    justify-content: center;
+    padding: 0;
+    align-items: baseline;
+}
+
+.landingPageLinks li:hover {
+    transition-duration: 100ms;
+    transition-property: all;
+    transform: scale(110%);
+}
