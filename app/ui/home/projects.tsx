@@ -1,11 +1,12 @@
 import Link from "next/link";
 import ProjectCard from "./projectCard";
 import ProjectGrid from "./projectGrid";
+import { notoSansMono } from "@/app/fonts";
 
 export default function Projects() {
   return (
     <section id="projects">
-      <h2>Projects</h2>
+      <h2 className={notoSansMono.className}>Projects</h2>
       <ProjectGrid>
         <ProjectCard
           title="CoverDB"

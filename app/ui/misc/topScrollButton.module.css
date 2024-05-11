@@ -11,7 +11,7 @@
     border-radius: 25px;
     border: none;
     transition: filter;
-    transition-duration: 100ms;
+    transition-duration: 200ms;
 }
 
 .topScrollButton:hover {
@@ -19,7 +19,7 @@
     cursor: pointer;
 }
 
-.topScrollButtonHidden {
+.hidden {
     filter: opacity(0%);
     pointer-events: none;
 }

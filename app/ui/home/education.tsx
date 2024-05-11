@@ -1,7 +1,9 @@
+import { notoSansMono } from "@/app/fonts";
+
 export default function Education() {
   return (
     <section id="education">
-      <h2>Education</h2>
+      <h2 className={notoSansMono.className}>Education</h2>
       <article>
         <h3>Collin County Community College</h3>
         <p>May 2022</p>

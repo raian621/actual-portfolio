@@ -1,7 +1,9 @@
+import { notoSansMono } from "@/app/fonts";
+
 export default function Skills() {
   return (
     <section id="skills">
-      <h2>Skills</h2>
+      <h2 className={notoSansMono.className}>Skills</h2>
       <h3>Programming Languages</h3>
       <ul>
         <li>C</li>

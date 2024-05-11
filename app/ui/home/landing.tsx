@@ -7,14 +7,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { GitHubIcon, KaggleIcon, LinkedInIcon } from "@/app/icons";
+import { notoSansMono } from "@/app/fonts";
 config.autoAddCss = false;
 
 export default function Landing() {
   return (
     <section id="landing">
       <div className={styles.title}>
-        <h2 className={styles.nameTitle}>Ryan Bell</h2>
-        <h2 className={styles.nameSubtitle}>Software Engineer</h2>
+        <h2 className={`${styles.nameTitle} ${notoSansMono.className}`}>
+          Ryan Bell
+        </h2>
+        <h2 className={`${styles.nameSubtitle} ${notoSansMono.className}`}>
+          Software Engineer
+        </h2>
       </div>
       <ul className={styles.landingPageLinks}>
         <li>
@@ -39,17 +44,17 @@ export default function Landing() {
       <ul className={styles.landingPageLinks}>
         <li>
           <a href="https://github.com/raian621" target="_blank">
-            <GitHubIcon size="lg" color="black" />
+            <GitHubIcon size="2x" color="black" />
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/ryan-z-bell/" target="_blank">
-            <LinkedInIcon size="lg" color="#0a66c2" />
+            <LinkedInIcon size="2x" color="#0a66c2" />
           </a>
         </li>
         <li>
           <a href="https://www.kaggle.com/ryanbell62101" target="_blank">
-            <KaggleIcon size="lg" color="#20beff" />
+            <KaggleIcon size="2x" color="#20beff" />
           </a>
         </li>
       </ul>

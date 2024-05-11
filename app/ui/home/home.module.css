@@ -1,7 +1,31 @@
-.title {
-    display: flex;
-    align-items: center;
-    gap: 1em;
+@media (min-width: 800px) {
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .title :nth-child(1)::after {
+        content: ":"
+    }
+}
+
+@media (max-width: 800px) {
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .title * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .title :nth-child(2) {
+        font-size: 0.8rem;
+    }
 }
 
 .nameSubtitle {
