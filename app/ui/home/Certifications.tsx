@@ -21,14 +21,30 @@ export default function Certifications() {
       org: "Coursera",
       issued: "July 2023",
       link: "https://www.coursera.org/account/accomplishments/professional-cert/TP58KH6HB5C5",
-      factoids: [],
+      factoids: [
+        "Developed a RESTful microservice for managing user accounts using \
+        Flask and PostgreSQL",
+        "Created CI/CD pipelines using GitHub Actions and Tekton",
+        "Incorporated static analysis tools and automated testing into CI/CD \
+        pipelines",
+        "Learned about the software development life cycle, Test Driven \
+        Development, Behavior Driven Development, and other DevOps \
+        methodologies",
+      ],
     },
     {
       name: "IBM Full Stack Software Developer",
       org: "Coursera",
       issued: "March 2023",
       link: "https://www.coursera.org/account/accomplishments/professional-cert/VFK52PHX2CJU",
-      factoids: [],
+      factoids: [
+        "Developed a full stack application for a mock car dealership",
+        "Utilized IBM Cloud Technologies like IBM Cloud Functions, IBM \
+        Cloudant NoSQL database, and IBM Watson's Natural Language \
+        Understanding",
+        "Containerized the application using Docker and deployed it on IBM's \
+        OpenShift Kubernetes service",
+      ],
     },
   ];
   return (

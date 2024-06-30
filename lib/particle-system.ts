@@ -1,4 +1,4 @@
-const MAX_PARTICLES = 10000;
+const MAX_PARTICLES = 1000;
 
 class ParticleSystem {
   canvas: OffscreenCanvas;
@@ -15,8 +15,8 @@ class ParticleSystem {
 
   constructor(
     canvas: OffscreenCanvas,
-    minLinkDistance: number = 100,
-    maxSpeed: number = 0.0001,
+    minLinkDistance: number = 80,
+    maxSpeed: number = 0.00005,
     radius: number = 5,
     density: number = 0.008
   ) {
@@ -177,7 +177,6 @@ class ParticleSystem {
         ps.render();
       }
       start = Date.now();
-      console.log(delta, this.maxScreenSpeed);
       await new Promise((_) =>
         setTimeout(_, Math.max(frameInterval - delta, 0))
       );

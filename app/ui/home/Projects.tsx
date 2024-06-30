@@ -29,7 +29,7 @@ export default function Projects() {
       name: "Transcribro",
       tech: ["FastAPI", "React", "Python", "TypeScript", "Whisper AI"],
       factoids: [
-        "Collaborated with a team of 6 and a university sponsor to build a web \
+        "Collaborated in a team of six with a university sponsor to build a web \
         application for accessible audio transcription, aiding the \
         hard-of-hearing",
         "Developed an audio pre-processing solution for efficient Whisper API \
@@ -42,7 +42,6 @@ export default function Projects() {
       ],
       extLink: "https://transcribro.com",
       ghLink: "https://github.com/nomaddevs1/Captioning",
-      blogLink: "https://google.com",
     },
   ];
 

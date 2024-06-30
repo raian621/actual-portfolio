@@ -36,7 +36,7 @@ export default function ParticleCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="bg-blue-500 bg-opacity-20 w-[100vdw] h-[100vdh] fixed p-0 m-0 left-0 -z-10"
+      className="w-[100vdw] h-[100vdh] fixed p-0 m-0 top-0 left-0 -z-10"
     />
   );
 }
