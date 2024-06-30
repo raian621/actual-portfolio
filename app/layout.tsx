@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import TopScrollButton from "./ui/misc/topScrollButton";
 import { roboto } from "./fonts";
 
 export const metadata: Metadata = {
@@ -15,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className}`}>{children}</body>
+      <body className={`${roboto.className} bg-white dark:bg-black`}>
+        {children}
+      </body>
     </html>
   );
 }
