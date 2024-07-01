@@ -12,7 +12,14 @@ export default function Intro() {
     <>
       <h1 className="text-4xl">Ryan Bell</h1>
       {/* yapping */}
-      <p>Overwhelmingly mid software engineer</p>
+      <p>
+        Aspiring Software Engineer with experience in automation, cloud
+        computing, machine learning, computer science, and software development.
+        Recently graduated with honors from the University of North Texas with a
+        Bachelors in Computer Science, and is equipped with the practical skills
+        and theoretical knowledge necessary to become an valuable asset in any
+        software development team.
+      </p>
       <div className="flex gap-4 justify-center">
         <a href="https://github.com/raian621" target="_blank">
           <SiGithub />

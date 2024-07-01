@@ -1,9 +1,4 @@
-import {
-  Link,
-  Share,
-  SquareArrowOutUpRight,
-  SquareArrowUpRight,
-} from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 export type CertificationInfo = {
   name: string;
@@ -15,7 +10,7 @@ export type CertificationInfo = {
 };
 
 export default function Certifications() {
-  const certs = [
+  const certs: CertificationInfo[] = [
     {
       name: "IBM DevOps and Software Engineering Specialization",
       org: "Coursera",
@@ -42,8 +37,18 @@ export default function Certifications() {
         "Utilized IBM Cloud Technologies like IBM Cloud Functions, IBM \
         Cloudant NoSQL database, and IBM Watson's Natural Language \
         Understanding",
-        "Containerized the application using Docker and deployed it on IBM's \
-        OpenShift Kubernetes service",
+        "Containerized the application using Docker and deployed it to an \
+        OpenShift Kubernetes service on IBM Cloud",
+      ],
+    },
+    {
+      name: "AWS Certified Solutions Architect - Associate",
+      org: "Amazon Web Services",
+      issued: "Soon",
+      factoids: [
+        "Currently studying for the AWS SAA-C03 exam",
+        "Have become acquainted with AWS services including EC2, ECS, EBS, EFS,\
+        EKS, IAM, S3, R53, RDS, and VPCs",
       ],
     },
   ];

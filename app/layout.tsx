@@ -4,7 +4,12 @@ import { roboto } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Ryan Bell",
-  description: "Portfolio page for an overwhelmingly mid software engineer",
+  description: `Aspiring Software Engineer with experience in automation, cloud \
+computing, machine learning, computer science, and software development. \
+Recently graduated with honors from the University of North Texas with a \
+Bachelors in Computer Science, and is equipped with the practical skills \
+and theoretical knowledge necessary to become an valuable asset to any software \
+development team.`,
 };
 
 export default function RootLayout({
