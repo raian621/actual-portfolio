@@ -19,10 +19,10 @@ class ParticleSystem {
 
   constructor(
     canvas: OffscreenCanvas,
-    minLinkDistance: number = 80,
+    minLinkDistance: number = 200,
     maxSpeed: number = 0.02,
     radius: number = 5,
-    density: number = 0.008
+    density: number = 0.001
   ) {
     this.canvas = canvas;
     this.width = canvas.width;
