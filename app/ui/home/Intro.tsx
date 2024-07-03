@@ -35,7 +35,7 @@ export default function Intro() {
               </a>
             </TooltipTrigger>
             <TooltipContent side="bottom" className="dark">
-              <p>ryan.bell62101@gmail.com</p>
+              <p>ryanzbell@proton.me</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
