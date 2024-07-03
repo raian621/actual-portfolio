@@ -30,7 +30,7 @@ export default function Intro() {
         <TooltipProvider delayDuration={100}>
           <Tooltip>
             <TooltipTrigger>
-              <a href="mailto:ryan.bell62101@gmail.com" target="_blank">
+              <a href="mailto:ryanzbell@proton.me" target="_blank">
                 <Mail />
               </a>
             </TooltipTrigger>
