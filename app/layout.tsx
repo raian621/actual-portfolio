@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 computing, machine learning, computer science, and software development. \
 Recently graduated with honors from the University of North Texas with a \
 Bachelors in Computer Science, and is equipped with the practical skills \
-and theoretical knowledge necessary to become an valuable asset to any software \
+and theoretical knowledge necessary to become a valuable asset to any software \
 development team.`,
 };
 
