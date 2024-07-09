@@ -17,7 +17,7 @@ export default function Intro() {
         computing, machine learning, computer science, and software development.
         Recently graduated with honors from the University of North Texas with a
         Bachelors in Computer Science, and is equipped with the practical skills
-        and theoretical knowledge necessary to become an valuable asset in any
+        and theoretical knowledge necessary to become a valuable asset in any
         software development team.
       </p>
       <div className="flex gap-4 justify-center">
