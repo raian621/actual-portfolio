@@ -65,7 +65,7 @@ function Project({ project }: { project: ProjectInfo }) {
             <a
               href={project.ghLink}
               target="_blank"
-              className="hover:text-slate-600"
+              className="dark:hover:text-slate-300 hover:text-slate-500"
             >
               <SiGithub />
             </a>
@@ -74,7 +74,7 @@ function Project({ project }: { project: ProjectInfo }) {
             <a
               href={project.extLink}
               target="_blank"
-              className="hover:text-slate-600"
+              className="dark:hover:text-slate-300 hover:text-slate-500"
             >
               <SquareArrowOutUpRight />
             </a>

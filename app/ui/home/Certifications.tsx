@@ -12,6 +12,18 @@ export type CertificationInfo = {
 export default function Certifications() {
   const certs: CertificationInfo[] = [
     {
+      name: "AWS Certified Solutions Architect - Associate",
+      org: "Amazon Web Services",
+      issued: "July 2024",
+      expires: "July 2027",
+      link: "https://www.credly.com/badges/21975415-1c7a-44a4-aa34-4d2beffc39e1/",
+      factoids: [
+        "Gained a comprehensive understanding of AWS services and technologies",
+        "Demonstrated the ability to build secure and robust solutions using architectural design principles based on customer requirements",
+        "Learned how to design well-architected distributed systems that are scalable, resilient, efficient, and fault-tolerant",
+      ],
+    },
+    {
       name: "IBM DevOps and Software Engineering Specialization",
       org: "Coursera",
       issued: "July 2023",
@@ -41,16 +53,6 @@ export default function Certifications() {
         OpenShift Kubernetes service on IBM Cloud",
       ],
     },
-    {
-      name: "AWS Certified Solutions Architect - Associate",
-      org: "Amazon Web Services",
-      issued: "Soon",
-      factoids: [
-        "Currently studying for the AWS SAA-C03 exam",
-        "Have become acquainted with AWS services including EC2, ECS, EBS, EFS,\
-        EKS, IAM, S3, R53, RDS, and VPCs",
-      ],
-    },
   ];
   return (
     <div className={`space-y-4 text-left`}>
@@ -68,14 +70,14 @@ function Certification({ cert }: { cert: CertificationInfo }) {
       <div className="flex justify-between gap-2 items-center">
         <h2 className="text-xl">{cert.name}</h2>
         <span className="whitespace-nowrap">
-          {cert.expires ? `${cert.issued}-${cert.expires}` : `${cert.issued}`}
+          {cert.expires ? `${cert.issued} - ${cert.expires}` : `${cert.issued}`}
         </span>
       </div>
       {cert.link ? (
         <a
           href={cert.link}
           target="_blank"
-          className="flex gap-2 items-center hover:text-slate-600"
+          className="flex gap-2 items-center dark:hover:text-slate-300 hover:text-slate-500"
         >
           <span className="italic">{cert.org}</span>
           <SquareArrowOutUpRight size="1em" />

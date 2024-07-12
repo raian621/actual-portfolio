@@ -1,13 +1,32 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
 import { Mail, Phone } from "lucide-react";
+import { ReactElement } from "react";
+
+type IntroLinkInfo = {
+  link: string;
+  element: () => ReactElement;
+};
 
 export default function Intro() {
+  const introLinkInfo: IntroLinkInfo[] = [
+    {
+      link: "https://github.com/raian621",
+      element: () => <SiGithub />,
+    },
+    {
+      link: "https://www.linkedin.com/in/ryan-z-bell",
+      element: () => <SiLinkedin />,
+    },
+    {
+      link: "mailto:ryanzbell@proton.me",
+      element: () => <Mail />,
+    },
+    {
+      link: "tel:469-678-6995",
+      element: () => <Phone />,
+    },
+  ];
+
   return (
     <>
       <h1 className="text-4xl">Ryan Bell</h1>
@@ -21,36 +40,18 @@ export default function Intro() {
         software development team.
       </p>
       <div className="flex gap-4 justify-center">
-        <a href="https://github.com/raian621" target="_blank">
-          <SiGithub />
-        </a>
-        <a href="https://www.linkedin.com/in/ryan-z-bell" target="_blank">
-          <SiLinkedin />
-        </a>
-        <TooltipProvider delayDuration={100}>
-          <Tooltip>
-            <TooltipTrigger>
-              <a href="mailto:ryanzbell@proton.me" target="_blank">
-                <Mail />
-              </a>
-            </TooltipTrigger>
-            <TooltipContent side="bottom" className="dark">
-              <p>ryanzbell@proton.me</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider delayDuration={100}>
-          <Tooltip>
-            <TooltipTrigger>
-              <a href="tel:469-678-6995" target="_blank">
-                <Phone />
-              </a>
-            </TooltipTrigger>
-            <TooltipContent side="bottom" className="dark">
-              <p>469-678-6995</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        {introLinkInfo.map((info, idx) => {
+          const { link, element: LinkIcon } = info;
+          return (
+            <a
+              key={`intro-link-${idx}`}
+              href={link}
+              className="dark:hover:text-slate-300 hover:text-slate-500"
+            >
+              <LinkIcon />
+            </a>
+          );
+        })}
       </div>
     </>
   );
