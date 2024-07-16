@@ -46,7 +46,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="space-y-4 text-left">
+    <div className="space-y-4 text-left py-2">
       <h1 className="text-2xl">Projects</h1>
       {projects.map((project, idx) => {
         return <Project key={`project-${idx}`} project={project} />;

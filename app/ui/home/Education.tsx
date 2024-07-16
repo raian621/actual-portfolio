@@ -22,7 +22,7 @@ export default function Education({ className }: { className?: string }) {
   ];
 
   return (
-    <div className={`${className} space-y-4 text-left`}>
+    <div className={`${className} space-y-4 text-left py-2`}>
       <h1 className="text-2xl">Education</h1>
       {education.map((edu, idx) => {
         return <EducationSection education={edu} key={`edu-${idx}`} />;

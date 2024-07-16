@@ -28,7 +28,7 @@ export default function Intro() {
   ];
 
   return (
-    <>
+    <div className="flex flex-col gap-4 py-4">
       <h1 className="text-4xl">Ryan Bell</h1>
       {/* yapping */}
       <p>
@@ -42,10 +42,13 @@ export default function Intro() {
       <div className="flex gap-4 justify-center">
         {introLinkInfo.map((info, idx) => {
           const { link, element: LinkIcon } = info;
+          const target = (!link.startsWith("tel") && !link.startsWith("mailto")) ? "_blank" : undefined;
+
           return (
             <a
               key={`intro-link-${idx}`}
               href={link}
+              target={target}
               className="dark:hover:text-slate-300 hover:text-slate-500"
             >
               <LinkIcon />
@@ -53,6 +56,6 @@ export default function Intro() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

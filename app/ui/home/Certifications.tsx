@@ -55,7 +55,7 @@ export default function Certifications() {
     },
   ];
   return (
-    <div className={`space-y-4 text-left`}>
+    <div className="space-y-4 text-left py-2">
       <h1 className="text-2xl">Certifications</h1>
       {certs.map((cert, idx) => {
         return <Certification key={`cert-${idx}`} cert={cert} />;

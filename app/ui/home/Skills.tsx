@@ -51,7 +51,7 @@ export default function Skills() {
   libraries.sort();
 
   return (
-    <div className="text-left">
+    <div className="text-left py-2">
       <h2 className="text-2xl">Skills</h2>
       <h3>Languages</h3>
       <div className="my-2 flex flex-wrap gap-2">
