@@ -20,7 +20,6 @@ export default function Page() {
           <Skills />
         </div>
       </div>
-      <ParticleCanvas />
     </>
   );
 }

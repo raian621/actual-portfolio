@@ -2,12 +2,19 @@ import { SiLinkedin } from "@icons-pack/react-simple-icons";
 import { Mail, Phone } from "lucide-react";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { ReactElement } from "react";
+import { Metadata } from "next";
 
 type ContactInfo = {
   link: string;
   text: string;
   icon: () => ReactElement;
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Contact",
+  };
+}
 
 export default function Page() {
   const contactInfoList: ContactInfo[] = [
@@ -56,7 +63,6 @@ export default function Page() {
           </table>
         </div>
       </div>
-      <ParticleCanvas />
     </>
   );
 }

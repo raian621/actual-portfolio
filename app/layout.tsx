@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { roboto } from "./fonts";
+import ParticleCanvas from "@/components/ParticleCanvas";
 
 export const metadata: Metadata = {
   title: "Ryan Bell",
@@ -23,6 +24,7 @@ export default function RootLayout({
         className={`${roboto.className} text-black dark:text-white bg-blue-100 dark:bg-slate-900`}
       >
         {children}
+        <ParticleCanvas />
       </body>
     </html>
   );
