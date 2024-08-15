@@ -40,7 +40,7 @@ export default function Projects() {
         "Utilized GitHub Actions for automated containerization and deployment \
         of the backend service, ensuring scalability and maintainability",
       ],
-      extLink: "https://transcribro.com",
+      extLink: "https://www.transcribro.com",
       ghLink: "https://github.com/nomaddevs1/Captioning",
     },
   ];
