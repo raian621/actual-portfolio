@@ -1,0 +1,24 @@
+---
+interface Props {
+  frontmatter: {
+    title: string;
+    technologies: string[];
+    githubLink?: string;
+    deployedLink?: string;
+  };
+}
+
+const { title, technologies, githubLink, deployedLink } =
+  Astro.props.frontmatter;
+const technologiesString = technologies
+  .sort()
+  .reduce((acc, val) => acc + ", " + val);
+---
+
+<div id={title.toLowerCase()}>
+  <h3>{title}</h3>
+  <span>{technologiesString}</span>
+  <span>{githubLink && <a href={githubLink}>GitHub</a>}</span>
+  <span>{deployedLink && <a href={deployedLink}>Test it out</a>}</span>
+  <slot />
+</div>

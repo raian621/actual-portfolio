@@ -1,0 +1,47 @@
+---
+const pageTitle = Astro.props.pageTitle || "Ryan Bell's Site";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/resume">Resume</a>
+        <a href="/contact">Contact</a>
+        <a href="/blog">Blog</a>
+      </nav>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main nav {
+    display: flex;
+    width: calc(40em - 40px);
+    justify-content: space-between;
+  }
+</style>

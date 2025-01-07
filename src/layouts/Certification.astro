@@ -1,0 +1,29 @@
+---
+interface Props {
+  frontmatter: {
+    title: string;
+    authorityName: string;
+    authorityLink: string;
+    earnedDate: string;
+    expiresDate?: string;
+  };
+}
+
+const { title, authorityName, authorityLink, earnedDate, expiresDate } =
+  Astro.props.frontmatter;
+---
+
+<div class="certification" id={title.toLowerCase()}>
+  <h3>{title}</h3>
+  <a href={authorityLink}>{authorityName}</a>
+  <span>{earnedDate}</span>
+  {
+    expiresDate !== undefined && (
+      <>
+        <span>-</span>
+        <span>{expiresDate}</span>
+      </>
+    )
+  }
+  <slot />
+</div>
