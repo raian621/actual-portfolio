@@ -1,0 +1,26 @@
+:root {
+  --background-color: white;
+  --backdrop-color: #ddddff;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: var(--backdrop-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+hr {
+  margin: 20px 0;
+  height: 1px;
+  background-color: black;
+}

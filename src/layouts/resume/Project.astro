@@ -1,0 +1,40 @@
+---
+interface Props {
+  frontmatter: {
+    title: string;
+    technologies: string[];
+    githubLink?: string;
+    deployedLink?: string;
+  };
+}
+
+const { title, technologies, githubLink, deployedLink } =
+  Astro.props.frontmatter;
+const technologiesString = technologies
+  .sort()
+  .reduce((acc, val) => acc + ", " + val);
+---
+
+<div id={title.toLowerCase()}>
+  <div class="project-heading">
+    <h3>{title}</h3>
+    <div class="project-heading project-heading-links">
+      {githubLink && <a href={githubLink}>GitHub</a>}
+      {deployedLink && <a href={deployedLink}>Test it out</a>}
+    </div>
+  </div>
+  <i>{technologiesString}</i>
+  <slot />
+</div>
+
+<style>
+  .project-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-heading-links {
+    gap: 1em;
+  }
+</style>

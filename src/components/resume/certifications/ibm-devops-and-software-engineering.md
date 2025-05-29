@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/Certification.astro
+layout: ../../../layouts/resume/Certification.astro
 title: IBM DevOps and Software Engineering Specialization
 earnedDate: July 2023
 authorityName: Coursera

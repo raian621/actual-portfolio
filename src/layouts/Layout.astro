@@ -1,4 +1,8 @@
 ---
+// import ParticleCanvas from "../components/ParticleCanvas.astro";
+import ParticleCanvas from "../components/ParticleCanvas.astro";
+import "../styles/main.css";
+
 const pageTitle = Astro.props.pageTitle || "Ryan Bell's Site";
 ---
 
@@ -12,36 +16,33 @@ const pageTitle = Astro.props.pageTitle || "Ryan Bell's Site";
     <title>{pageTitle}</title>
   </head>
   <body>
+    <ParticleCanvas />
     <main>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/resume">Resume</a>
-        <a href="/contact">Contact</a>
-        <a href="/blog">Blog</a>
-      </nav>
-      <slot />
+      <div class="layout-wrapper">
+        <nav>
+          <a href="/">Home</a>
+          <a href="/resume">Resume</a>
+          <a href="/contact">Contact</a>
+          <a href="/blog">Blog</a>
+        </nav>
+        <slot />
+      </div>
     </main>
   </body>
 </html>
 
 <style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-  main {
+  .layout-wrapper nav {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 2em;
+    justify-content: center;
+    background-color: white;
   }
 
-  main nav {
-    display: flex;
-    width: calc(40em - 40px);
-    justify-content: space-between;
+  .layout-wrapper {
+    background-color: var(--background-color);
+    padding: 30px;
+    width: 40em;
+    z-index: 100;
   }
 </style>

@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/Certification.astro
+layout: ../../../layouts/resume/Certification.astro
 title: AWS Certified Solutions Architect - Associate
 earnedDate: July 2024
 expiresDate: July 2027

@@ -1,0 +1,23 @@
+---
+interface Props {
+  frontmatter: {
+    title: string;
+    company: string;
+    startDate: string;
+    endDate?: string;
+  };
+}
+
+const { title, company, startDate, endDate } = Astro.props.frontmatter;
+---
+
+<div class="education" id={title.toLowerCase()}>
+  <h3>{title}</h3>
+  <h3>{company}</h3>
+  <span>{startDate}</span>
+  <span> - </span>
+  <span>{endDate || "Present"}</span>
+  <slot />
+</div>
+
+<style></style>

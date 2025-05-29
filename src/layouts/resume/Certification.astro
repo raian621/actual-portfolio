@@ -14,8 +14,10 @@ const { title, authorityName, authorityLink, earnedDate, expiresDate } =
 ---
 
 <div class="certification" id={title.toLowerCase()}>
-  <h3>{title}</h3>
-  <a href={authorityLink}>{authorityName}</a>
+  <div class="certification-heading">
+    <h3>{title}</h3>
+    <a href={authorityLink}>{authorityName}</a>
+  </div>
   <span>{earnedDate}</span>
   {
     expiresDate !== undefined && (
@@ -27,3 +29,11 @@ const { title, authorityName, authorityLink, earnedDate, expiresDate } =
   }
   <slot />
 </div>
+
+<style>
+  .certification-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

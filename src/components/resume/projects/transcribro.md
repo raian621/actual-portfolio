@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/Project.astro"
+layout: "../../../layouts/resume/Project.astro"
 title: Transcribro
 technologies:
   - FastAPI

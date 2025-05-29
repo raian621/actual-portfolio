@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/Certification.astro
+layout: ../../../layouts/resume/Certification.astro
 title: IBM Full Stack Software Developer
 earnedDate: March 2023
 authorityName: Coursera
