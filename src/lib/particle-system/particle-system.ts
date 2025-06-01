@@ -1,7 +1,7 @@
 import { drawLine } from "./draw2d";
 import { Particle } from "./particle";
-
-const MAX_PARTICLES = 1000;
+import { QuadTree } from "./quadtree";
+import { Rectangle } from "./rectangle";
 
 export class ParticleSystem {
   canvas: OffscreenCanvas;
@@ -16,13 +16,15 @@ export class ParticleSystem {
   radius: number;
   wait: boolean;
   width: number;
+  maxParticles: number;
 
   constructor(
     canvas: OffscreenCanvas,
+    maxParticles: number = 10000,
     minLinkDistance: number = 200,
     maxSpeed: number = 0.02,
     radius: number = 5,
-    density: number = 0.001
+    density: number = 0.01
   ) {
     this.canvas = canvas;
     this.width = canvas.width;
@@ -37,11 +39,12 @@ export class ParticleSystem {
     this.density = density;
     this.radius = radius;
     this.wait = false;
+    this.maxParticles = maxParticles;
   }
 
   spawnParticles() {
     const particleCount = Math.min(
-      MAX_PARTICLES,
+      this.maxParticles,
       (this.density * (this.canvas.width * this.canvas.height)) /
         (this.radius * this.radius)
     );
@@ -65,7 +68,8 @@ export class ParticleSystem {
           y: this.radius / 2 + Math.random() * (this.height - this.radius),
         },
         velocity,
-        this.radius
+        this.radius,
+        i
       );
 
       this.particles.push(particle);
@@ -171,43 +175,25 @@ export class ParticleSystem {
   }
 
   renderLines() {
-    this.particles.forEach((u) => {
-      this.particles
-        .filter((v) => {
-          if (v == u) return false;
-
-          const { x: ux, y: uy } = u.position;
-          const { x: vx, y: vy } = v.position;
-
-          const dx = ux - vx;
-          const dy = uy - vy;
-
-          if (dx > this.minLinkDist || dy > this.minLinkDist) return false;
-
-          return dx * dx + dy * dy < this.minLinkDistSquared;
-        })
-        .forEach((v) => {
-          const { x: ux, y: uy } = u.position;
-          const { x: vx, y: vy } = v.position;
-          const dx = ux - vx;
-          const dy = uy - vy;
-
+    const qt = new QuadTree(new Rectangle(0, 0, this.width, this.height), 10);
+    this.particles.forEach((p) => qt.insert(p));
+    this.particles.forEach((p) => {
+      const neighbors = qt.queryCircle(p.position, this.minLinkDist);
+      neighbors
+        .filter((neighbor) => neighbor.id > p.id)
+        .forEach((neighbor) => {
+          const dx = Math.abs(p.position.x - neighbor.position.x);
+          const dy = Math.abs(p.position.y - neighbor.position.y);
           const strength =
             (this.minLinkDistSquared - (dx * dx + dy * dy)) /
             this.minLinkDistSquared;
-
           drawLine(
             this.context,
-            u.position,
-            v.position,
+            p.position,
+            neighbor.position,
             `hsl(100, 0%, 50%, ${strength})`,
             2
           );
-          this.context.strokeStyle = `hsl(100, 0%, 50%, ${strength})`;
-          this.context.beginPath();
-          this.context.moveTo(u.position.x, u.position.y);
-          this.context.lineTo(v.position.x, v.position.y);
-          this.context.stroke();
         });
     });
   }

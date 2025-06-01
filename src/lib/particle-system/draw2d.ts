@@ -1,7 +1,4 @@
-export type Vector2D = {
-  x: number;
-  y: number;
-};
+import type { Vector2D } from "./vector2d";
 
 export function drawLine(
   ctx: OffscreenCanvasRenderingContext2D,
