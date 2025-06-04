@@ -1,3 +1,4 @@
+import { RGBA } from "./rgba";
 import { Vector2D } from "./vector2d";
 
 export class Particle {
@@ -5,6 +6,7 @@ export class Particle {
   velocity: Vector2D;
   radius: number;
   id: number; // used to avoid recomputing lines
+  color: RGBA;
 
   constructor(
     position: Vector2D,
@@ -16,5 +18,6 @@ export class Particle {
     this.velocity = velocity;
     this.radius = radius;
     this.id = id;
+    this.color = new RGBA(0, 0, 0, 1);
   }
 }

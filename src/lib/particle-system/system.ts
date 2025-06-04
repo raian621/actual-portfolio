@@ -1,11 +1,12 @@
-import { drawLine } from "./draw2d";
+import { CanvasRenderer, type Renderer } from "./renderer";
+import { Link } from "./link";
 import { Particle } from "./particle";
 import { QuadTree } from "./quadtree";
 import { Rectangle } from "./rectangle";
+import { RGBA } from "./rgba";
 
 export class ParticleSystem {
   canvas: OffscreenCanvas;
-  context: OffscreenCanvasRenderingContext2D;
   density: number;
   height: number;
   maxSpeed: number;
@@ -17,6 +18,7 @@ export class ParticleSystem {
   wait: boolean;
   width: number;
   maxParticles: number;
+  renderer: Renderer;
 
   constructor(
     canvas: OffscreenCanvas,
@@ -24,13 +26,11 @@ export class ParticleSystem {
     minLinkDistance: number = 200,
     maxSpeed: number = 0.02,
     radius: number = 5,
-    density: number = 0.01
+    density: number = 0.003
   ) {
     this.canvas = canvas;
     this.width = canvas.width;
     this.height = canvas.height;
-    this.context = canvas.getContext("2d") as OffscreenCanvasRenderingContext2D;
-    this.context.imageSmoothingEnabled = true;
     this.particles = new Array<Particle>();
     this.maxSpeed = maxSpeed;
     this.maxScreenSpeed = maxSpeed * Math.min(canvas.width, canvas.height);
@@ -40,6 +40,8 @@ export class ParticleSystem {
     this.radius = radius;
     this.wait = false;
     this.maxParticles = maxParticles;
+    // this.renderer = new WebGlRenderer(this.canvas);
+    this.renderer = new CanvasRenderer(this.canvas);
   }
 
   spawnParticles() {
@@ -153,49 +155,40 @@ export class ParticleSystem {
       if (p.position.y < 0) p.position.y = 0;
       if (p.position.x >= this.width) p.position.x = this.width - 1;
       if (p.position.y >= this.height) p.position.y = this.height - 1;
+
+      p.color = RGBA.fromHSLA(p.position.y / this.height, 1.0, 0.5, 1.0);
     });
   }
 
   render() {
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.renderer.clear();
     this.renderLines();
     this.renderParticles();
   }
 
   renderParticles() {
-    this.particles.forEach((p) => {
-      this.context.beginPath();
-      this.context.fillStyle = `hsl(${
-        p.position.y / this.canvas.height
-      }turn, 100%, 50%)`;
-
-      this.context.arc(p.position.x, p.position.y, p.radius, 0, 2 * Math.PI);
-      this.context.fill();
-    });
+    this.renderer.drawParticles(this.particles);
   }
 
   renderLines() {
-    const qt = new QuadTree(new Rectangle(0, 0, this.width, this.height), 10);
+    const qt = new QuadTree(new Rectangle(0, 0, this.width, this.height), 20);
     this.particles.forEach((p) => qt.insert(p));
-    this.particles.forEach((p) => {
-      const neighbors = qt.queryCircle(p.position, this.minLinkDist);
-      neighbors
-        .filter((neighbor) => neighbor.id > p.id)
-        .forEach((neighbor) => {
-          const dx = Math.abs(p.position.x - neighbor.position.x);
-          const dy = Math.abs(p.position.y - neighbor.position.y);
-          const strength =
-            (this.minLinkDistSquared - (dx * dx + dy * dy)) /
-            this.minLinkDistSquared;
-          drawLine(
-            this.context,
-            p.position,
-            neighbor.position,
-            `hsl(100, 0%, 50%, ${strength})`,
-            2
-          );
-        });
-    });
+    const links: Link[] = this.particles
+      .map((p: Particle) => {
+        const neighbors = qt.queryCircle(p.position, this.minLinkDist);
+        return neighbors
+          .filter((neighbor) => neighbor.id > p.id)
+          .map((neighbor) => {
+            const dx = Math.abs(p.position.x - neighbor.position.x);
+            const dy = Math.abs(p.position.y - neighbor.position.y);
+            const strength =
+              (this.minLinkDistSquared - (dx * dx + dy * dy)) /
+              this.minLinkDistSquared;
+            return new Link(p.position, neighbor.position, strength);
+          });
+      })
+      .reduce((links, chunk) => links.concat(chunk));
+    this.renderer.drawLines(links);
   }
 
   async renderLoop() {
@@ -221,6 +214,7 @@ export class ParticleSystem {
     this.wait = true;
     this.canvas.width = width;
     this.canvas.height = height;
+    this.renderer.resize(width, height);
 
     this.particles = this.particles.filter((p) => {
       if (p.position.x >= width) return false;

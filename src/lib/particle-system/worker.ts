@@ -1,6 +1,6 @@
-import type { CanvasDimensions, CanvasPayload } from "./particle-system";
+import type { CanvasDimensions, CanvasPayload } from "./system";
 
-import { ParticleSystem } from "./particle-system";
+import { ParticleSystem } from "./system";
 
 type ParticleSystemPayload = {
   payloadType: "dimensions" | "canvas";
