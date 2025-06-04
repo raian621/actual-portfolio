@@ -19,8 +19,20 @@ const technologiesString = technologies
   <div class="project-heading">
     <h3>{title}</h3>
     <div class="project-heading project-heading-links">
-      {githubLink && <a href={githubLink}>GitHub</a>}
-      {deployedLink && <a href={deployedLink}>Test it out</a>}
+      {
+        githubLink && (
+          <a href={githubLink} target="_blank">
+            GitHub
+          </a>
+        )
+      }
+      {
+        deployedLink && (
+          <a href={deployedLink} target="_blank">
+            Test it out
+          </a>
+        )
+      }
     </div>
   </div>
   <i>{technologiesString}</i>
