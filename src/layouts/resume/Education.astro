@@ -1,0 +1,21 @@
+---
+interface Props {
+  frontmatter: {
+    schoolName: string;
+    degree: string;
+    startDate: string;
+    endDate: string;
+  };
+}
+
+const { schoolName, degree, startDate, endDate } = Astro.props.frontmatter;
+---
+
+<div class="school">
+  <h3>{schoolName}</h3>
+  <h4>{degree}</h4>
+  <span>{startDate}</span>
+  <span>-</span>
+  <span>{endDate}</span>
+  <slot />
+</div>
